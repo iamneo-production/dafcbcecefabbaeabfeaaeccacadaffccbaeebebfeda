@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppFoodListComponent } from './app-food-list.component';
+import { SearchbarComponent } from './searchbar.component';
 
-describe('AppFoodListComponent', () => {
-  let component: AppFoodListComponent;
-  let fixture: ComponentFixture<AppFoodListComponent>;
+describe('SearchbarComponent', () => {
+  let component: SearchbarComponent;
+  let fixture: ComponentFixture<SearchbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppFoodListComponent ]
+      declarations: [ SearchbarComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AppFoodListComponent);
+    fixture = TestBed.createComponent(SearchbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
