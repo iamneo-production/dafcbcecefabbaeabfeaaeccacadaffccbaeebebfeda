@@ -1,39 +1,32 @@
-import { Component } from '@angular/core';
-import { CurrencyConverterPipe } from './MyComponents/Pipe/currency-converter.pipe';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [CurrencyConverterPipe],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  fromCurrency?: string;
-  toCurrency?: string;
-  amount?: number;
-  resValue?: string;
-  result?: string;
+  title = 'CaloryTracker';
+  isShowForm = true;
+  
+  public data:any[]=[];
 
-  exchangeRates: Record<string, number> = {
-    1.126735: 1.126735,
-    0.876893: 0.876893,
-    79.677056: 79.677056,
-  };
+  public qData : any = '';  
 
-  convertCurrency() {
-    if (this.fromCurrency && this.toCurrency && this.amount) {
-      let convertedAmount = Math.round(
-        (this.amount * this.exchangeRates[this.toCurrency]) /
-          this.exchangeRates[this.fromCurrency]
-      ).toFixed(2);
-      this.resValue = convertedAmount;
-    }
-    if (this.fromCurrency && this.toCurrency && this.amount) {
-      let convertedAmount = Math.round(
-        (this.amount * this.exchangeRates[this.toCurrency]) /
-          this.exchangeRates[this.fromCurrency]
-      ).toFixed(2);
-      this.result = convertedAmount;
-    }
+  public cData : number = 0.0;
+
+  public fData : any = '';
+
+  searchText = '';
+
+  onSearchTextEntered(searchVal:string){
+    this.searchText = searchVal;
+    
+  }
+
+  toggleFormDiv(){
+    console.log("clicked")
+    this.isShowForm = !this.isShowForm;
+    console.log(this.qData)
   }
 }
